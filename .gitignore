@@ -1,0 +1,85 @@
+############################################
+# OS / Editor / IDE
+############################################
+.DS_Store
+Thumbs.db
+
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.tmp
+
+# Optional: if you use these
+.env
+.env.*
+!.env.example
+
+############################################
+# DDEV
+############################################
+# Keep DDEV project config in git:
+!.ddev/
+# But ignore runtime / generated / per-user things:
+.ddev/.dbimageBuild/
+.ddev/.homeadditions/
+.ddev/.imported*
+.ddev/db_snapshots/
+.ddev/.snapshot*
+.ddev/.gitignore
+
+############################################
+# Composer / PHP dependencies & caches
+############################################
+/vendor/
+/web/vendor/
+/composer.phar
+/.phpunit.result.cache
+/phpunit.xml
+/phpunit.xml.dist
+/.php_cs.cache
+/.php-cs-fixer.cache
+/.phpstan-cache/
+/.cache/
+/.tmp/
+
+############################################
+# Drupal runtime files (never commit)
+############################################
+# User-uploaded files and generated assets
+/web/sites/*/files/
+/web/sites/*/private/
+/web/sites/*/tmp/
+
+# Local settings (never commit)
+# Keep default.settings.php tracked, but ignore settings.php + local overrides
+/web/sites/*/settings.php
+/web/sites/*/settings.local.php
+/web/sites/*/services.local.yml
+
+# Simpletest / PHPUnit browser output
+/web/sites/simpletest/
+/web/sites/*/phpunit/
+
+############################################
+# Drupal build / front-end artifacts (if any)
+############################################
+/node_modules/
+/npm-debug.log*
+/yarn-error.log
+/pnpm-debug.log*
+/dist/
+/build/
+/.webpack/
+/.parcel-cache/
+
+############################################
+# Logs
+############################################
+*.log
+
+############################################
+# Optional: ignore Drupal config split exports per-env (if you do that)
+############################################
+# /config/sync_*   # <-- only if you keep per-env exports outside config/sync
