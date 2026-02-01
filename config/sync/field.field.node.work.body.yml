@@ -1,0 +1,26 @@
+uuid: 8c15d254-c711-4a44-96cc-8e1b29e377ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.restricted_html
+    - node.type.work
+  module:
+    - text
+id: node.work.body
+field_name: body
+entity_type: node
+bundle: work
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - restricted_html
+field_type: text_with_summary

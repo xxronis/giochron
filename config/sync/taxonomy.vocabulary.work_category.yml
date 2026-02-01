@@ -1,0 +1,9 @@
+uuid: 7db55272-51f2-4b71-80eb-08c97aafeb26
+langcode: en
+status: true
+dependencies: {  }
+name: 'Work category'
+vid: work_category
+description: null
+weight: 0
+new_revision: false
