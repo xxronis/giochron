@@ -1,0 +1,17 @@
+{
+    "_hash": "00fbe79e7ca4f53a050858b02bb844987c99d9e6d62692fc54eaf697e8afd7fd",
+    "patches": {
+        "league/flysystem-aws-s3-v3": [
+            {
+                "package": "league/flysystem-aws-s3-v3",
+                "description": "R2: treat GetObjectAcl 501 as public",
+                "url": "patches/r2-skip-getobjectacl-501.patch",
+                "sha256": "ea8062f419c950b0cb0b3772913757a6c78a2244a379fb38eab6f47925b11479",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}

@@ -3,15 +3,26 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - media.type.image
+    - media.type.remote_video
     - node.type.article
     - node.type.page
+    - node.type.work
     - taxonomy.vocabulary.tags
+    - taxonomy.vocabulary.work_category
   module:
     - comment
     - contextual
     - file
+    - filter
+    - flysystem_s3
+    - media
     - node
     - path
+    - shortcut
     - system
     - taxonomy
     - toolbar
@@ -23,25 +34,52 @@ weight: 2
 is_admin: false
 permissions:
   - 'access administration pages'
+  - 'access content'
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
+  - 'access media overview'
+  - 'access shortcuts'
+  - 'access site in maintenance mode'
   - 'access toolbar'
+  - 'administer node published status'
+  - 'administer nodes'
   - 'administer url aliases'
   - 'create article content'
+  - 'create image media'
+  - 'create media'
   - 'create page content'
+  - 'create remote_video media'
   - 'create terms in tags'
+  - 'create terms in work_category'
   - 'create url aliases'
+  - 'create work content'
+  - 'delete any article content'
+  - 'delete any image media'
+  - 'delete any media'
+  - 'delete any page content'
+  - 'delete any remote_video media'
+  - 'delete any work content'
   - 'delete article revisions'
   - 'delete own article content'
   - 'delete own files'
   - 'delete own page content'
   - 'delete page revisions'
+  - 'edit any article content'
+  - 'edit any image media'
+  - 'edit any page content'
+  - 'edit any remote_video media'
+  - 'edit any work content'
   - 'edit own article content'
   - 'edit own comments'
   - 'edit own page content'
   - 'edit terms in tags'
   - 'revert all revisions'
+  - 'update any media'
+  - 'use S3 CORS upload'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
   - 'view all revisions'
   - 'view own unpublished content'
   - 'view the administration theme'

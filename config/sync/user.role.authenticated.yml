@@ -9,6 +9,7 @@ dependencies:
     - contact
     - file
     - filter
+    - flysystem_s3
     - media
     - search
     - shortcut
@@ -28,5 +29,6 @@ permissions:
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
+  - 'use S3 CORS upload'
   - 'use text format basic_html'
   - 'view media'

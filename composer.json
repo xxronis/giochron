@@ -16,11 +16,14 @@
     ],
     "require": {
         "composer/installers": "^2.3",
+        "cweagans/composer-patches": "^2.0",
         "drupal/core-composer-scaffold": "^11.3",
         "drupal/core-project-message": "^11.3",
         "drupal/core-recipe-unpack": "^11.3",
         "drupal/core-recommended": "^11.3",
         "drupal/decoupled_router": "^2.0",
+        "drupal/flysystem": "^2.3",
+        "drupal/flysystem_s3": "^3.0",
         "drupal/pathauto": "^1.13",
         "drupal/taxonomy_menu": "^3.7",
         "drush/drush": "^13.6"
@@ -33,20 +36,24 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
-            "drupal/core-composer-scaffold": true,
-            "drupal/core-recipe-unpack": true,
-            "drupal/core-project-message": true,
-            "phpstan/extension-installer": true,
+            "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "drupal/core-recipe-unpack": true,
             "php-http/discovery": true,
-            "php-tuf/composer-integration": true
+            "php-tuf/composer-integration": true,
+            "phpstan/extension-installer": true
         },
         "sort-packages": true
     },
     "extra": {
         "drupal-scaffold": {
-            "locations": {
-                "web-root": "web/"
+            "locations": { "web-root": "web/" },
+            "file-mapping": {
+                "[web-root]/robots.txt": {
+                    "path": "scaffold/robots.txt"
+                }
             }
         },
         "installer-paths": {
@@ -101,6 +108,11 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
+        },
+        "patches": {
+            "league/flysystem-aws-s3-v3": {
+                "R2: treat GetObjectAcl 501 as public": "patches/r2-skip-getobjectacl-501.patch"
+            }
         }
     }
 }

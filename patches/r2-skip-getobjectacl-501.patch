@@ -1,0 +1,30 @@
+diff --git a/src/AwsS3Adapter.php b/src/AwsS3Adapter.php
+index 16b1eac..07ac409 100644
+--- a/src/AwsS3Adapter.php
++++ b/src/AwsS3Adapter.php
+@@ -504,6 +504,9 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
+         try {
+             $this->s3Client->execute($command);
+         } catch (S3Exception $exception) {
++            if ((int) $exception->getStatusCode() === 501) {
++                return compact('path', 'visibility');
++            }
+             return false;
+         }
+ 
+@@ -557,7 +560,14 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
+             ]
+         );
+ 
+-        $result = $this->s3Client->execute($command);
++        try {
++            $result = $this->s3Client->execute($command);
++        } catch (S3Exception $exception) {
++            if ((int) $exception->getStatusCode() === 501) {
++                return AdapterInterface::VISIBILITY_PUBLIC;
++            }
++            throw $exception;
++        }
+         $visibility = AdapterInterface::VISIBILITY_PRIVATE;
+ 
+         foreach ($result->get('Grants') as $grant) {

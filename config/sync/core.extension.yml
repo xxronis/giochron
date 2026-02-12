@@ -21,12 +21,15 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  flysystem: 0
+  flysystem_s3: 0
   help: 0
   history: 0
   image: 0
   jsonapi: 0
   link: 0
   media: 0
+  media_library: 0
   menu_link_content: 0
   menu_ui: 0
   mysql: 0
