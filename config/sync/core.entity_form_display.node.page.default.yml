@@ -4,11 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
-    - field.field.node.page.field_image
-    - image.style.thumbnail
+    - field.field.node.page.field_media
     - node.type.page
   module:
-    - image
+    - media_library
     - path
     - text
 _core:
@@ -34,13 +33,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_image:
-    type: image_image
-    weight: 1
+  field_media:
+    type: media_library_widget
+    weight: 123
     region: content
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      media_types: {  }
     third_party_settings: {  }
   path:
     type: path
