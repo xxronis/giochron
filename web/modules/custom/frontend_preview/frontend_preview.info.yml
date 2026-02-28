@@ -1,0 +1,5 @@
+name: Frontend Preview
+type: module
+description: Adds a preview link to the Astro frontend on published nodes.
+core_version_requirement: ^10 || ^11
+package: Custom

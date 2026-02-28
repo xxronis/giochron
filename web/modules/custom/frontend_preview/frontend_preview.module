@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * Adds a frontend preview link on published nodes.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_entity_operation().
+ */
+function frontend_preview_entity_operation(EntityInterface $entity): array {
+  $operations = [];
+
+  if (!$entity instanceof NodeInterface || !$entity->isPublished()) {
+    return $operations;
+  }
+
+  $frontend_url = \Drupal::service('frontend_preview.url_provider')->getFrontendUrl();
+  if (!$frontend_url) {
+    return $operations;
+  }
+
+  $alias = \Drupal::service('path_alias.manager')
+    ->getAliasByPath('/node/' . $entity->id());
+
+  $operations['frontend_preview'] = [
+    'title' => t('Preview on frontend'),
+    'url' => Url::fromUri($frontend_url . $alias),
+    'weight' => 50,
+  ];
+
+  return $operations;
+}
+
+/**
+ * Implements hook_node_view().
+ */
+function frontend_preview_node_view(array &$build, EntityInterface $entity, $display, $view_mode): void {
+  if ($view_mode !== 'full' || !$entity instanceof NodeInterface || !$entity->isPublished()) {
+    return;
+  }
+
+  $frontend_url = \Drupal::service('frontend_preview.url_provider')->getFrontendUrl();
+  if (!$frontend_url) {
+    return;
+  }
+
+  $alias = \Drupal::service('path_alias.manager')
+    ->getAliasByPath('/node/' . $entity->id());
+
+  $build['frontend_preview_link'] = [
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#attributes' => ['class' => ['frontend-preview-link']],
+    '#weight' => -100,
+    'link' => [
+      '#type' => 'link',
+      '#title' => t('View on frontend'),
+      '#url' => Url::fromUri($frontend_url . $alias),
+      '#attributes' => [
+        'class' => ['button', 'button--primary'],
+        'target' => '_blank',
+        'rel' => 'noopener noreferrer',
+      ],
+    ],
+  ];
+}

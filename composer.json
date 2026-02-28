@@ -24,6 +24,9 @@
         "drupal/decoupled_router": "^2.0",
         "drupal/flysystem": "^2.3",
         "drupal/flysystem_s3": "^3.0",
+        "drupal/gin": "^4.0",
+        "drupal/gin_toolbar": "^2.0",
+        "drupal/metatag": "^2.2",
         "drupal/pathauto": "^1.13",
         "drupal/taxonomy_menu": "^3.7",
         "drush/drush": "^13.6"

@@ -1,0 +1,4 @@
+services:
+  frontend_preview.url_provider:
+    class: Drupal\frontend_preview\FrontendUrlProvider
+    arguments: ['@settings']
