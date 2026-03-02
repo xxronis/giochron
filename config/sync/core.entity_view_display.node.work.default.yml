@@ -6,9 +6,11 @@ dependencies:
     - field.field.node.work.body
     - field.field.node.work.field_category
     - field.field.node.work.field_media
+    - field.field.node.work.field_status
     - field.field.node.work.field_tags
     - node.type.work
   module:
+    - options
     - text
     - user
 id: node.work.default
@@ -39,6 +41,13 @@ content:
       link: false
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
     region: content
   field_tags:
     type: entity_reference_label
