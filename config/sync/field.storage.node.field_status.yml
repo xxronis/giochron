@@ -16,7 +16,7 @@ settings:
       label: 'original available'
     -
       value: sold
-      label: 'original sold!'
+      label: 'private collection'
     -
       value: print_available
       label: 'print available'
